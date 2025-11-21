@@ -66,16 +66,16 @@ Simply open [Lovable](https://lovable.dev/projects/ef82ede2-168d-43db-ad74-8288c
 
 ## GitHub Pages deployment
 
-Pushing to `main` automatically kicks off `.github/workflows/deploy.yml`, which installs dependencies with `npm ci`, runs `npm run build`, and pushes the generated `dist` folder to the `gh-pages` branch so GitHub Pages serves the compiled bundle at `https://airturnjun.github.io/`.
+Pushing to `main` automatically runs `.github/workflows/deploy.yml`. The workflow installs dependencies with `npm ci`, builds the production bundle, uploads `dist/` as a Pages artifact, and finalizes the deployment with `actions/deploy-pages`. In the repository settings, set **Pages → Source** to **GitHub Actions** so the workflow output becomes `https://airturnjun.github.io/`.
 
-To redeploy manually:
+If you need to test locally before pushing:
 
 ```sh
 npm run build
-npm run deploy
+npm run preview
 ```
 
-The `deploy` script wraps `gh-pages -d dist`, so it publishes whatever is currently in `dist`.
+Preview serves the built files locally; GitHub Pages itself is updated only by the workflow.
 
 ## Can I connect a custom domain to my Lovable project?
 
