@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { assetUrl } from "@/lib/asset";
 import {
   Dialog,
   DialogContent,
@@ -9,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 export const HeroSection = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const poster = assetUrl("lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png");
 
   return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
     {/* Background Video */}
@@ -19,7 +22,7 @@ export const HeroSection = () => {
         muted
         loop
         playsInline
-        poster="/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png"
+        poster={poster}
       >
         <source src="https://cdn.shopify.com/videos/c/o/v/15c553736a2f496bb692b7b9d154cdc5.mp4" type="video/mp4" />
       </video>
@@ -61,10 +64,10 @@ export const HeroSection = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button variant="hero" size="xl" className="group text-sky-500 bg-gray-950 hover:bg-gray-800" asChild>
-            <a href="/product">
+            <Link to="/product">
               Get Your MAV
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </a>
+            </Link>
           </Button>
           <Button
             variant="feature"

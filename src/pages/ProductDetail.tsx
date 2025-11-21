@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "react-router-dom";
 import { ShopifyBuyButton } from "@/components/ShopifyBuyButton";
+import { assetUrl } from "@/lib/asset";
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -235,7 +236,7 @@ const ProductDetail = () => {
       <section>
         <div className="w-full">
           <div className="aspect-video overflow-hidden bg-muted">
-            <video className="w-full h-full object-cover" controls autoPlay muted loop preload="metadata" poster="/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png">
+            <video className="w-full h-full object-cover" controls autoPlay muted loop preload="metadata" poster={assetUrl("lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png")}>
               <source src="https://cdn.shopify.com/videos/c/o/v/15c553736a2f496bb692b7b9d154cdc5.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>

@@ -1,12 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import { assetUrl } from "@/lib/asset";
 
 export const Footer = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const logoSrc = assetUrl("lovable-uploads/1cc4e6f9-3928-49d8-bde3-6600dab84be6.png");
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -111,7 +114,7 @@ export const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <img src="/lovable-uploads/1cc4e6f9-3928-49d8-bde3-6600dab84be6.png" alt="AirTurn Logo" className="w-8 h-8 object-contain" />
+              <img src={logoSrc} alt="AirTurn Logo" className="w-8 h-8 object-contain" />
               <span className="text-xl font-bold">AirTurn MAV</span>
             </div>
             <p className="text-muted-foreground">
@@ -145,15 +148,15 @@ export const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Product</h3>
             <div className="space-y-2">
-              <a href="/product#features" className="block text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/product#features" className="block text-muted-foreground hover:text-primary transition-colors">
                 Features
-              </a>
-              <a href="/warranty" className="block text-muted-foreground hover:text-primary transition-colors">
+              </Link>
+              <Link to="/warranty" className="block text-muted-foreground hover:text-primary transition-colors">
                 Warranty Registration
-              </a>
-              <a href="/warranty-policy" className="block text-muted-foreground hover:text-primary transition-colors">
+              </Link>
+              <Link to="/warranty-policy" className="block text-muted-foreground hover:text-primary transition-colors">
                 Warranty Policy
-              </a>
+              </Link>
             </div>
           </div>
           
@@ -161,18 +164,18 @@ export const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Support</h3>
             <div className="space-y-2">
-              <a href="/support" className="block text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/support" className="block text-muted-foreground hover:text-primary transition-colors">
                 Setup Guide
-              </a>
-              <a href="#troubleshooting" className="block text-muted-foreground hover:text-primary transition-colors">
+              </Link>
+              <Link to="/support" className="block text-muted-foreground hover:text-primary transition-colors">
                 Troubleshooting
-              </a>
-              <a href="/downloads" className="block text-muted-foreground hover:text-primary transition-colors">
+              </Link>
+              <Link to="/downloads" className="block text-muted-foreground hover:text-primary transition-colors">
                 Downloads
-              </a>
-              <a href="/shipping-policy" className="block text-muted-foreground hover:text-primary transition-colors">
+              </Link>
+              <Link to="/shipping-policy" className="block text-muted-foreground hover:text-primary transition-colors">
                 Shipping Policy
-              </a>
+              </Link>
             </div>
           </div>
           
@@ -203,17 +206,17 @@ export const Footer = () => {
             © 2024 AirTurn. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
+            <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
-            </a>
-            <a href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
-            </a>
-            <a href="/returns" className="text-muted-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/returns" className="text-muted-foreground hover:text-primary transition-colors">
               Return Policy
-            </a>
+            </Link>
           </div>
         </div>
       </div>
     </footer>;
-};
+  };

@@ -1,25 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { assetUrl } from "@/lib/asset";
+const asset = (file: string) => assetUrl(`lovable-uploads/${file}`);
 const features = [{
   title: "Wearable Design",
   description: "Adjustable strap fits over outerwear",
-  image: "/lovable-uploads/143eaf88-3a32-405a-bbbd-433bff7598eb.png",
+  image: asset("143eaf88-3a32-405a-bbbd-433bff7598eb.png"),
   details: "Designed for comfort and durability, the MAV's adjustable strap system adapts to any adventure gear, ensuring secure attachment without limiting mobility."
 }, {
   title: "Waterproof Enclosure",
   description: "Protection from rain, snow, or sweat",
-  image: "/lovable-uploads/0dbfd9bb-d525-41b0-beb2-b5f0dde70033.png",
+  image: asset("0dbfd9bb-d525-41b0-beb2-b5f0dde70033.png"),
   details: "Engineered with advanced sealing technology, the MAV withstands the harshest conditions while maintaining full functionality."
 }, {
   title: "Magnetic Charging",
   description: "Convenience keeping your device sealed from the elements",
-  image: "/lovable-uploads/a379ad39-fea3-46b5-a91b-dad051e768b5.png",
+  image: asset("a379ad39-fea3-46b5-a91b-dad051e768b5.png"),
   details: "Innovative magnetic charging system eliminates the need for ports, maintaining complete weather resistance while providing effortless power management."
 }, {
   title: "Endless App Control",
   description: "Seamless switching between your favorite media apps",
-  image: "/lovable-uploads/e629d416-b699-478c-805d-8163043900cf.png",
+  image: asset("e629d416-b699-478c-805d-8163043900cf.png"),
   details: "Compatible with hundreds of apps, from music streaming to navigation, giving you complete control over your digital experience."
 }];
 export const FeaturesSection = () => {
@@ -65,10 +68,10 @@ export const FeaturesSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="hero" size="xl" className="group text-sky-500" asChild>
-              <a href="/product">
+              <Link to="/product">
                 Order Your MAV
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Link>
             </Button>
            
           </div>

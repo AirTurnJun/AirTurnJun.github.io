@@ -3,8 +3,10 @@ import { Footer } from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { HelpCircle } from "lucide-react";
+import { assetUrl } from "@/lib/asset";
 
 const Support = () => {
+  const overviewImage = assetUrl("lovable-uploads/support.png");
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -42,7 +44,7 @@ const Support = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <img 
-                    src="/lovable-uploads/support.png" 
+                    src={overviewImage} 
                     alt="AirTurn MAV Button Layout" 
                     className="w-full max-w-md mx-auto rounded-lg"
                   />

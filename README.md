@@ -64,6 +64,19 @@ This project is built with:
 
 Simply open [Lovable](https://lovable.dev/projects/ef82ede2-168d-43db-ad74-8288c64a3571) and click on Share -> Publish.
 
+## GitHub Pages deployment
+
+Pushing to the `main` branch automatically builds the Vite app and deploys the static files to the `gh-pages` branch via `.github/workflows/deploy.yml`. The workflow installs dependencies with `npm ci`, runs `npm run build`, and publishes the `dist` directory so `https://airturnjun.github.io/airturn-mav-online-hub/` always serves the compiled bundle.
+
+To trigger a deployment manually without pushing new commits, rerun the workflow from the **Actions** tab or execute:
+
+```sh
+npm run build
+npm run deploy
+```
+
+The `deploy` script uses `gh-pages` to publish the latest `dist` output.
+
 ## Can I connect a custom domain to my Lovable project?
 
 Yes, you can!
