@@ -64,6 +64,19 @@ This project is built with:
 
 Simply open [Lovable](https://lovable.dev/projects/ef82ede2-168d-43db-ad74-8288c64a3571) and click on Share -> Publish.
 
+## GitHub Pages deployment
+
+Pushing to `main` automatically kicks off `.github/workflows/deploy.yml`, which installs dependencies with `npm ci`, runs `npm run build`, and pushes the generated `dist` folder to the `gh-pages` branch so GitHub Pages serves the compiled bundle at `https://airturnjun.github.io/`.
+
+To redeploy manually:
+
+```sh
+npm run build
+npm run deploy
+```
+
+The `deploy` script wraps `gh-pages -d dist`, so it publishes whatever is currently in `dist`.
+
 ## Can I connect a custom domain to my Lovable project?
 
 Yes, you can!
