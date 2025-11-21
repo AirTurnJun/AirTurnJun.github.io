@@ -21,11 +21,29 @@
   <meta name="twitter:description" content="The ultimate wearable controller for adventurers. Waterproof, magnetic charging, endless app control. Adventure Ready. Control Unleashed.">
   <script>
     (function () {
+      const STORAGE_KEY = "__gh_redirect__";
+
+      function getStoredRedirect() {
+        try {
+          const value = sessionStorage.getItem(STORAGE_KEY);
+          if (value) {
+            sessionStorage.removeItem(STORAGE_KEY);
+            return value;
+          }
+        } catch (err) {
+          console.warn("Redirect storage unavailable", err);
+        }
+        return null;
+      }
+
       const params = new URLSearchParams(window.location.search);
-      const redirect = params.get("redirect");
+      const redirectFromQuery = params.get("redirect");
+      const redirect = getStoredRedirect() ?? redirectFromQuery;
       if (!redirect) return;
-      const decoded = decodeURIComponent(redirect) || "/";
-      const newUrl = decoded + window.location.hash;
+
+      const decoded = redirectFromQuery ? decodeURIComponent(redirect) : redirect;
+      const normalized = decoded.startsWith("/") ? decoded : `/${decoded}`;
+      const newUrl = normalized + (window.location.hash || "");
       window.history.replaceState(null, "", newUrl);
     })();
   </script>

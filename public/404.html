@@ -5,9 +5,16 @@
     <title>Redirecting...</title>
     <script>
       (function () {
+        const STORAGE_KEY = "__gh_redirect__";
         const { origin, pathname, search, hash } = window.location;
-        const target = encodeURIComponent((pathname || "/") + (search || ""));
-        const redirectUrl = `${origin}/?redirect=${target}${hash || ""}`;
+        const target = (pathname || "/") + (search || "");
+        try {
+          sessionStorage.setItem(STORAGE_KEY, target || "/");
+        } catch (err) {
+          console.warn("Unable to store redirect path", err);
+        }
+        const encodedTarget = encodeURIComponent(target || "/");
+        const redirectUrl = `${origin}/?redirect=${encodedTarget}${hash || ""}`;
         window.location.replace(redirectUrl);
       })();
     </script>
