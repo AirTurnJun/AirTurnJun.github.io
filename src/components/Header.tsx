@@ -35,7 +35,7 @@ export const Header = () => {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
             <Button variant="hero" size="sm" className="bg-slate-50" asChild>
-              <a href="/product">Get It Now</a>
+              <a href="/product">Get It Now (Free two-day shipping US only)</a>
             </Button>
           </div>
           
@@ -64,7 +64,7 @@ export const Header = () => {
               </a>
               <div className="px-4 pt-4">
                 <Button variant="hero" size="sm" className="w-full" asChild>
-                  <a href="/product">Buy Now</a>
+                  <a href="/product">Buy Now (Free two-day shipping US only)</a>
                 </Button>
               </div>
             </nav>

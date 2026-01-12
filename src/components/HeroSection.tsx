@@ -37,23 +37,23 @@ export const HeroSection = () => {
 
         {/* Main Heading */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-          <span className="bg-gradient-hero bg-clip-text text-transparent">
-            CONTROL
+          <span className="text-foreground">
+            Change the track,
           </span>
           <br />
           <span className="text-foreground">
-            UNLEASHED
+            not the vibe.
           </span>
         </h1>
 
         {/* Subheading */}
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          The ultimate wearable controller for adventurers who demand seamless app control in any environment.
+          Keep your phone secure and the music going.
         </p>
 
         {/* Feature highlights */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {["Waterproof", "Magnetic Charging", "Endless App Control", "Adventure Ready"].map(feature => <div key={feature} className="bg-gradient-feature backdrop-blur-sm rounded-lg px-4 py-2 border border-primary/10">
+          {["Waterproof", "Rechargeable", "150 ft Range", "Music, Podcasts, TV"].map(feature => <div key={feature} className="bg-gradient-feature backdrop-blur-sm rounded-lg px-4 py-2 border border-primary/10">
             <span className="text-sm font-medium">{feature}</span>
           </div>)}
         </div>
@@ -62,7 +62,7 @@ export const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button variant="hero" size="xl" className="group text-sky-500 bg-gray-950 hover:bg-gray-800" asChild>
             <a href="/product">
-              Get Your MAV
+              Get Your MAV (Free two-day shipping US only)
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </a>
           </Button>

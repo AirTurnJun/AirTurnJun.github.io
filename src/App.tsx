@@ -14,6 +14,7 @@ import TermsOfService from "./pages/TermsOfService";
 import ReturnPolicy from "./pages/ReturnPolicy";
 import Downloads from "./pages/Downloads";
 import ShippingPolicy from "./pages/ShippingPolicy";
+import AppDevelopers from "./pages/AppDevelopers";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/returns" element={<ReturnPolicy />} />
           <Route path="/downloads" element={<Downloads />} />
           <Route path="/shipping-policy" element={<ShippingPolicy />} />
+          <Route path="/app-developers" element={<AppDevelopers />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

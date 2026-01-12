@@ -16,7 +16,7 @@ const WarrantyRegistration = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-20 pb-5 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4">
@@ -42,7 +42,7 @@ const WarrantyRegistration = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            
+
             {/* Registration Form */}
             <div className="lg:col-span-2">
               <Card className="border-primary/20 shadow-card">
@@ -53,17 +53,19 @@ const WarrantyRegistration = () => {
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <div className="w-full">
-                    <iframe
-                      src="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7srRKusGT57WwbnkAZXFQW-MmqokjAKp0ef1u8ZsoE84r5w/formResponse?embedded=true"
-                      width="100%"
-                      height="1200"
-                      style={{ border: 0 }}
-                      className="rounded-lg"
-                      title="AirTurn Warranty Registration Form"
-                    >
-                      Loading…
-                    </iframe>
+                  <div className="w-full" style={{ filter: "invert(1)" }}>
+                    <div style={{ filter: "hue-rotate(180.00deg) saturate(100%) brightness(90%)" }}>
+                      <iframe
+                        src="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7srRKusGT57WwbnkAZXFQW-MmqokjAKp0ef1u8ZsoE84r5w/formResponse?embedded=true"
+                        width="100%"
+                        height="1200"
+                        style={{ border: 0 }}
+                        className="rounded-lg"
+                        title="AirTurn Warranty Registration Form"
+                      >
+                        Loading…
+                      </iframe>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -72,7 +74,7 @@ const WarrantyRegistration = () => {
 
             {/* Sidebar Information */}
             <div className="space-y-6">
-              
+
               {/* US Customers Notice */}
               <Card className="border-emerald-800/30 bg-gradient-to-br from-emerald-950/40 to-green-950/30 shadow-lg">
                 <CardHeader className="pb-6">

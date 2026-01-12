@@ -30,7 +30,7 @@ const ProductDetail = () => {
   }, [location]);
   const handleAddToCart = () => {
     console.log('handleAddToCart called, quantity:', quantity);
-    
+
     // Check if Shopify function exists
     if (typeof (window as any).addToShopifyCart === 'function') {
       console.log('Calling addToShopifyCart with quantity:', quantity);
@@ -38,21 +38,21 @@ const ProductDetail = () => {
       // Don't show success toast here - let the Shopify function handle it
     } else {
       console.log('addToShopifyCart not found, checking for Shopify components...');
-      
+
       // Try to add to cart using Shopify UI directly
       const shopifyUI = (window as any).shopifyUI;
       const shopifyProduct = (window as any).shopifyProductComponent;
-      
+
       if (shopifyUI && shopifyProduct) {
         console.log('Found Shopify UI and product, attempting direct add to cart');
-        
+
         // Try to add directly
         if (shopifyUI.components && shopifyUI.components.cart && shopifyUI.components.cart.length > 0) {
           const cart = shopifyUI.components.cart[0];
-          
+
           if (shopifyProduct.model && shopifyProduct.model.selectedVariant) {
             const variant = shopifyProduct.model.selectedVariant;
-            
+
             cart.addVariantToCart(variant, quantity).then(() => {
               console.log('Successfully added to cart!');
               cart.open();
@@ -76,7 +76,7 @@ const ProductDetail = () => {
           title: "Loading cart...",
           description: "Please wait a moment and try again."
         });
-        
+
         // Retry after 1 second
         setTimeout(() => {
           if (typeof (window as any).addToShopifyCart === 'function') {
@@ -141,180 +141,179 @@ const ProductDetail = () => {
     value: "2-year with registration"
   }];
   return <div className="min-h-screen bg-background">
-      <Header />
-      
-      {/* Hidden Shopify Buy Button for cart integration */}
-      <ShopifyBuyButton quantity={quantity} />
-      
-      {/* Main Product Section */}
-      <div className="pt-0 pb-0 min-h-screen flex items-center">
-        <div className="container mx-auto px-0 ">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            
-            {/* Product Images */}
-            <div className="flex gap-4">
-              {/* Thumbnail Navigation */}
-              <div className="flex flex-col max-w-24 gap-2 aspect-square overflow-y-auto pr-2 [&::-webkit-scrollbar]:hidden" style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}>
-                {productImages.map((image, index) => (
-                  <button 
-                    key={index} 
-                    onClick={() => setSelectedImage(index)} 
-                    className={`w-24 h-24 rounded-md overflow-hidden border-2 transition-colors flex-shrink-0 ${
-                      selectedImage === index ? "border-primary" : "border-border"
+    <Header />
+
+    {/* Hidden Shopify Buy Button for cart integration */}
+    <ShopifyBuyButton quantity={quantity} />
+
+    {/* Main Product Section */}
+    <div className="pt-0 pb-0 min-h-screen flex items-center">
+      <div className="container mx-auto px-0 ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+          {/* Product Images */}
+          <div className="flex gap-4">
+            {/* Thumbnail Navigation */}
+            <div className="flex flex-col max-w-24 gap-2 aspect-square overflow-y-auto pr-2 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              {productImages.map((image, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedImage(index)}
+                  className={`w-24 h-24 rounded-md overflow-hidden border-2 transition-colors flex-shrink-0 ${selectedImage === index ? "border-primary" : "border-border"
                     }`}
-                  >
-                    <img src={image} alt={`MAV view ${index + 1}`} className="w-full h-full object-cover" />
-                  </button>
-                ))}
-              </div>
-              
-              {/* Main Image */}
-              <div className="flex-1 aspect-square rounded-lg overflow-hidden bg-muted">
-                <img src={productImages[selectedImage]} alt="AirTurn MAV" className="w-full h-full  object-cover" />
+                >
+                  <img src={image} alt={`MAV view ${index + 1}`} className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+
+            {/* Main Image */}
+            <div className="flex-1 aspect-square rounded-lg overflow-hidden bg-muted">
+              <img src={productImages[selectedImage]} alt="AirTurn MAV" className="w-full h-full  object-cover" />
+            </div>
+          </div>
+
+          {/* Product Info */}
+          <div className="space-y-6">
+            <div>
+              <Badge variant="secondary" className="mb-2">New Release</Badge>
+              <h1 className="text-4xl font-bold mb-2 text-primary">AirTurn MAV</h1>
+              <p className="text-xl text-muted-foreground mb-4">
+                Wearable, waterproof, and ultra-durable Bluetooth media controller
+              </p>
+              <div className="flex items-center gap-2 mb-4">
+                <Badge variant="secondary" className="text-xs">In Stock</Badge>
+                <span className="text-muted-foreground text-sm">Ready to ship</span>
               </div>
             </div>
 
-            {/* Product Info */}
-            <div className="space-y-6">
-              <div>
-                <Badge variant="secondary" className="mb-2">New Release</Badge>
-                <h1 className="text-4xl font-bold mb-2 text-primary">AirTurn MAV</h1>
-                <p className="text-xl text-muted-foreground mb-4">
-                  Wearable, waterproof, and ultra-durable Bluetooth media controller
-                </p>
-                <div className="flex items-center gap-2 mb-4">
-                  <Badge variant="secondary" className="text-xs">In Stock</Badge>
-                  <span className="text-muted-foreground text-sm">Ready to ship</span>
+            <div className="text-3xl font-bold text-primary">$99.00</div>
+
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <label className="text-sm font-medium">Quantity:</label>
+                <div className="flex items-center border rounded-md">
+                  <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-3 py-1 hover:bg-muted">
+                    -
+                  </button>
+                  <span className="px-4 py-1 border-x text-white font-extrabold">{quantity}</span>
+                  <button onClick={() => setQuantity(quantity + 1)} className="px-3 py-1 hover:bg-muted">
+                    +
+                  </button>
                 </div>
               </div>
 
-              <div className="text-3xl font-bold text-primary">$99.00</div>
-
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <label className="text-sm font-medium">Quantity:</label>
-                  <div className="flex items-center border rounded-md">
-                    <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-3 py-1 hover:bg-muted">
-                      -
-                    </button>
-                    <span className="px-4 py-1 border-x text-white font-extrabold">{quantity}</span>
-                    <button onClick={() => setQuantity(quantity + 1)} className="px-3 py-1 hover:bg-muted">
-                      +
-                    </button>
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <Button variant="hero" size="xl" className="w-full text-sky-500" onClick={handleAddToCart}>
-                    Add to Cart - ${(99.00 * quantity).toFixed(2)}
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </div>
+              <div className="space-y-3">
+                <Button variant="hero" size="xl" className="w-full text-sky-500" onClick={handleAddToCart}>
+                  Add to Cart - ${(99.00 * quantity).toFixed(2)} (Free two-day shipping US only)
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
               </div>
+            </div>
 
-              <div className="space-y-3 pt-4 border-t">
-                <div className="flex items-center gap-2 text-sm">
-                  <Check className="w-4 h-4 text-green-500" />
-                  <span>Free shipping on orders over $100</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <Check className="w-4 h-4 text-green-500" />
-                  <span>30-day money-back guarantee</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <Check className="w-4 h-4 text-green-500" />
-                  <span>2-year manufacturer warranty</span>
-                </div>
+            <div className="space-y-3 pt-4 border-t">
+              <div className="flex items-center gap-2 text-sm">
+                <Check className="w-4 h-4 text-green-500" />
+                <span>Free shipping on orders over $100</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm">
+                <Check className="w-4 h-4 text-green-500" />
+                <span>30-day money-back guarantee</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm">
+                <Check className="w-4 h-4 text-green-500" />
+                <span>2-year manufacturer warranty</span>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      {/* Product Video Section */}
-      <section>
-        <div className="w-full">
-          <div className="aspect-video overflow-hidden bg-muted">
-            <video className="w-full h-full object-cover" controls autoPlay muted loop preload="metadata" poster="/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png">
-              <source src="https://cdn.shopify.com/videos/c/o/v/15c553736a2f496bb692b7b9d154cdc5.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+    {/* Product Video Section */}
+    <section>
+      <div className="w-full">
+        <div className="aspect-video overflow-hidden bg-muted">
+          <video className="w-full h-full object-cover" controls autoPlay muted loop preload="metadata" poster="/lovable-uploads/e8f70cd8-6ea4-4909-8fbd-cfb836ae9cd9.png">
+            <source src="https://cdn.shopify.com/videos/c/o/v/15c553736a2f496bb692b7b9d154cdc5.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-16 bg-muted/20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-primary">Built for Adventure</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Every feature designed to enhance your outdoor experience with uncompromising reliability.
+    {/* Features Section */}
+    <section id="features" className="py-16 bg-muted/20">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4 text-primary">Stay in the Moment</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Manage music and call without stopping, slowing down, or pulling out your phone.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, index) => <Card key={index} className="text-center p-6 border-primary/20">
+            <CardContent className="p-0">
+              <feature.icon className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+              <p className="text-muted-foreground text-sm">{feature.description}</p>
+            </CardContent>
+          </Card>)}
+        </div>
+      </div>
+    </section>
+
+    {/* Specifications */}
+    <section id="specs" className="py-16">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 text-primary">Technical Specifications</h2>
+
+          <Card className="border-primary/20">
+            <CardContent className="p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {specs.map((spec, index) => <div key={index}>
+                  <div className="flex justify-between items-center py-3">
+                    <span className="font-medium">{spec.label}</span>
+                    <span className="text-muted-foreground">{spec.value}</span>
+                  </div>
+                  {index < specs.length - 1 && <Separator />}
+                </div>)}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    {/* Description */}
+    <section className="py-16 bg-muted/20">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8 text-primary">Product Description</h2>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              The AirTurn MAV is a rugged, Bluetooth-enabled media controller designed for movement. With five tactile buttons
+              and a compact, strap-on design, it offers direct control over your apps—whether you're hiking, biking, paddling,
+              or snowboarding. No need to dig out your phone; just press a button to stay in control.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              Built to withstand the elements, the MAV is waterproof, dustproof, and impact-resistant. Its sealed housing and
+              durable construction make it ideal for adventures in any weather—rain, snow, mud, or dust. The MAV gives you
+              physical control you can count on, whether you're wearing gloves or in motion.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Weighing just a few ounces, the MAV stays out of the way while staying ready for action. Mount it to your wrist,
+              bike, pack, or gear with the included strap for comfortable access without adding bulk. With up to 200+ hours of
+              battery life and magnetic charging, it's built for extended adventures.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => <Card key={index} className="text-center p-6 border-primary/20">
-                <CardContent className="p-0">
-                  <feature.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground text-sm">{feature.description}</p>
-                </CardContent>
-              </Card>)}
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* Specifications */}
-      <section id="specs" className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12 text-primary">Technical Specifications</h2>
-            
-            <Card className="border-primary/20">
-              <CardContent className="p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {specs.map((spec, index) => <div key={index}>
-                      <div className="flex justify-between items-center py-3">
-                        <span className="font-medium">{spec.label}</span>
-                        <span className="text-muted-foreground">{spec.value}</span>
-                      </div>
-                      {index < specs.length - 1 && <Separator />}
-                    </div>)}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Description */}
-      <section className="py-16 bg-muted/20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8 text-primary">Product Description</h2>
-            <div className="prose prose-lg max-w-none">
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                The AirTurn MAV is a rugged, Bluetooth-enabled media controller designed for movement. With five tactile buttons 
-                and a compact, strap-on design, it offers direct control over your apps—whether you're hiking, biking, paddling, 
-                or snowboarding. No need to dig out your phone; just press a button to stay in control.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                Built to withstand the elements, the MAV is waterproof, dustproof, and impact-resistant. Its sealed housing and 
-                durable construction make it ideal for adventures in any weather—rain, snow, mud, or dust. The MAV gives you 
-                physical control you can count on, whether you're wearing gloves or in motion.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Weighing just a few ounces, the MAV stays out of the way while staying ready for action. Mount it to your wrist, 
-                bike, pack, or gear with the included strap for comfortable access without adding bulk. With up to 200+ hours of 
-                battery life and magnetic charging, it's built for extended adventures.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>;
+    <Footer />
+  </div>;
 };
 export default ProductDetail;
