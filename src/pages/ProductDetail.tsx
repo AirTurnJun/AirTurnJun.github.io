@@ -230,7 +230,7 @@ const ProductDetail = () => {
       </div>
     </div>
 
-    {/* Product Video Section */}
+    {/* Product Video Section 
     <section>
       <div className="w-full">
         <div className="aspect-video overflow-hidden bg-muted">
@@ -241,6 +241,7 @@ const ProductDetail = () => {
         </div>
       </div>
     </section>
+    */}
 
     {/* Features Section */}
     <section id="features" className="py-16 bg-muted/20">

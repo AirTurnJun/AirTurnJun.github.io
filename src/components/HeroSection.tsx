@@ -27,16 +27,12 @@ export const HeroSection = () => {
     </div>
 
     {/* Content */}
-    <div className="relative z-10 container mx-auto px-4 text-center">
+    <div className="relative z-10 top-0 container mx-auto px-4 text-center">
       <div className="max-w-4xl mx-auto animate-fade-in">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-gradient-card backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-primary/20">
-          <div className="w-2 h-2 bg-primary rounded-full animate-glow-pulse" />
-          <span className="text-sm font-medium">Adventure Ready</span>
-        </div>
+
 
         {/* Main Heading */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
           <span className="text-foreground">
             Change the track,
           </span>
@@ -62,7 +58,7 @@ export const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button variant="hero" size="xl" className="group text-sky-500 bg-gray-950 hover:bg-gray-800" asChild>
             <a href="/product">
-              Get Your MAV (Free two-day shipping US only)
+              Get Your MAV Now
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </a>
           </Button>
