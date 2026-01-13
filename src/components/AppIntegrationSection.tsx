@@ -27,7 +27,7 @@ const integrationApps = [
   },
   {
     name: "Spotify",
-    image: "https://cdn.jim-nielsen.com/watchos/512/spotify-music-and-podcasts-2020-03-19.png?rf=1024",
+    image: "https://cdn.jim-nielsen.com/watchos/512/spotify-music-and-podcasts-2020-03-19.png",
   },
   {
     name: "Apple Music",
