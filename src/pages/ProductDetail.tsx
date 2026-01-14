@@ -278,11 +278,11 @@ const ProductDetail = () => {
 
           <Card className="border-primary/20">
             <CardContent className="p-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
                 {specs.map((spec, index) => <div key={index}>
                   <div className="flex justify-between items-center py-3">
                     <span className="font-medium">{spec.label}</span>
-                    <span className="text-muted-foreground ml-5">{spec.value}</span>
+                    <span className="text-muted-foreground ml-5 text-right">{spec.value}</span>
                   </div>
                   {index < specs.length - 1 && <Separator />}
                 </div>)}
