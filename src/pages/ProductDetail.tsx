@@ -215,14 +215,16 @@ const ProductDetail = () => {
                 <Button
                   variant="hero"
                   size="xl"
-                  className="w-full text-sky-500 whitespace-normal text-center leading-snug h-auto py-4 md:h-14 md:py-0 md:whitespace-nowrap flex-wrap md:flex-nowrap"
+                  className="w-full flex text-sky-500 whitespace-normal justify-between leading-snug h-auto py-4 md:h-14 md:py-0"
                   onClick={handleAddToCart}
                 >
-                  <span className="w-full md:w-auto">Add to Cart - ${(99.00 * quantity).toFixed(2)}</span>
-                  <span className="w-full md:w-auto md:ml-1 inline-flex items-center justify-center">
-                    (Free two-day shipping US only)
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </span>
+                  <div className="text-center">
+                    <span className="w-full md:w-auto">Add to Cart - ${(99.00 * quantity).toFixed(2)}</span>
+                    <span className="w-full md:w-auto md:ml-1 inline-flex items-center justify-center">
+                      (Free 2-day shipping)
+                    </span>
+                  </div>
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
             </div>
@@ -231,7 +233,7 @@ const ProductDetail = () => {
               <div className="flex items-start gap-2 text-sm">
                 <Check className="w-4 h-4 text-green-500 mt-0.5" />
                 <div>
-                  <p className="font-medium text-foreground">Free 2-day shipping on lower US orders</p>
+                  <p className="font-medium text-foreground">Free 2-day shipping</p>
                   <p className="text-muted-foreground">If you're in the lower-48, get your order in 2 days, no charge.</p>
                 </div>
               </div>
@@ -275,12 +277,12 @@ const ProductDetail = () => {
           <h2 className="text-3xl font-bold text-center mb-12 text-primary">Technical Specifications</h2>
 
           <Card className="border-primary/20">
-            <CardContent className="p-8">
+            <CardContent className="p-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {specs.map((spec, index) => <div key={index}>
                   <div className="flex justify-between items-center py-3">
                     <span className="font-medium">{spec.label}</span>
-                    <span className="text-muted-foreground">{spec.value}</span>
+                    <span className="text-muted-foreground ml-5">{spec.value}</span>
                   </div>
                   {index < specs.length - 1 && <Separator />}
                 </div>)}
