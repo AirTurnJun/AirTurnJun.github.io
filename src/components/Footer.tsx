@@ -85,7 +85,7 @@ export const Footer = () => {
           <p className="text-muted-foreground mb-6">
             Get the latest updates on MAV features, firmware updates, and adventure stories from our community.
           </p>
-          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <form onSubmit={handleSubscribe} className="flex flex-col items-center sm:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"

@@ -114,7 +114,7 @@ const AppDevelopers = () => {
               <p className="mb-6 text-muted-foreground">
                 Enter your email below, or just give us a call, to get started.
               </p>
-              <form onSubmit={handleSubscribe} className="flex flex-col gap-4 sm:flex-row">
+              <form onSubmit={handleSubscribe} className="flex flex-col gap-4 sm:flex-row items-center">
                 <input
                   type="email"
                   placeholder="Enter your email"
