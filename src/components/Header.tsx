@@ -40,7 +40,7 @@ export const Header = () => {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
           <Button variant="hero" size="sm" className="bg-slate-50" asChild>
-            <a href="/product">Get It Now (Free two-day shipping in US)</a>
+            <a href="/product">Get It Now (Free 2-day shipping in US)</a>
           </Button>
         </div>
 

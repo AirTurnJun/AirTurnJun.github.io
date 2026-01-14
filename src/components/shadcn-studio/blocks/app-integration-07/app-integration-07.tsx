@@ -32,19 +32,19 @@ const AppIntegration = ({ integrations }: { integrations: Integration }) => {
         <div className="from-background pointer-events-none absolute inset-y-0 left-0 z-[1] w-[8.75rem] bg-gradient-to-r to-transparent max-sm:hidden" />
         <div className="from-background pointer-events-none absolute inset-y-0 right-0 z-[1] w-[8.75rem] bg-gradient-to-l to-transparent max-sm:hidden" />
         <div className="w-full overflow-hidden">
-          <Marquee pauseOnHover duration={150} gap={1.5}>
+          <Marquee pauseOnHover duration={150} gap={1.5} className="p-2 sm:p-3">
             {integrations.map((app, index) => (
               <Card
                 key={index}
-                className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 bg-muted border-none shadow-lg w-[12rem]"
+                className="text-card-foreground flex flex-col gap-4 sm:gap-6 rounded-xl border py-4 sm:py-6 bg-muted border-none shadow-lg w-[9rem] sm:w-[12rem]"
               >
-                <CardContent className="flex flex-col items-center gap-2.5">
-                  <Avatar className="size-16 rounded-xl">
+                <CardContent className="flex flex-col items-center gap-2 sm:gap-2.5">
+                  <Avatar className="size-12 sm:size-16 rounded-xl">
                     <AvatarFallback className={cn("rounded-xl")}>
                       <img src={app.image} alt={app.name} className="h-full w-full object-contain" />
                     </AvatarFallback>
                   </Avatar>
-                  <CardTitle className="text-2xl font-medium">{app.name}</CardTitle>
+                  <CardTitle className="text-base sm:text-2xl font-medium">{app.name}</CardTitle>
                 </CardContent>
               </Card>
             ))}
