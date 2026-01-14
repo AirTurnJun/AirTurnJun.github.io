@@ -24,7 +24,7 @@ const AppDevelopers = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("https://a.klaviyo.com/client/profiles/?company_id=HcUryP", {
+      const response = await fetch("https://a.klaviyo.com/client/profiles/?company_id=Vj2ixH", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
