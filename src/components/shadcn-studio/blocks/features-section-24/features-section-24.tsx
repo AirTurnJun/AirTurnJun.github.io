@@ -241,8 +241,8 @@ const Features = ({ featuresList }: { featuresList: Features }) => {
             <div className="flex flex-col gap-16 md:hidden">
               {featuresList.map((feature, index) => (
                 <div key={index} className="space-y-16">
-                  <div className="bg-black bg-muted relative px-6 py-20">
-                    <div className="bg-card sticky top-20 flex h-[21.875rem] items-center justify-center overflow-hidden rounded-xl border">
+                  <div className="relative px-6 py-20">
+                    <div className="bg-black sticky top-20 flex h-[21.875rem] items-center justify-center overflow-hidden rounded-xl border">
                       <div className="absolute inset-0 flex items-center justify-center">
                         <img
                           src={feature.image}
@@ -262,7 +262,7 @@ const Features = ({ featuresList }: { featuresList: Features }) => {
                           width="10"
                           height="12"
                           viewBox="0 0 10 12"
-                          fill="none"
+                          fill="skyBlue"
                           className={cn("absolute", position)}
                         >
                           <path d="M5 0L10 6L5 12L0 6L5 0Z" fill="var(--primary)" />

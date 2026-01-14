@@ -18,6 +18,9 @@ export const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
+          <a href="/product" className="text-foreground hover:text-primary transition-colors">
+            Detail
+          </a>
           <a href="/support" className="text-foreground hover:text-primary transition-colors">
             Support
           </a>
@@ -52,6 +55,9 @@ export const Header = () => {
       {/* Mobile Navigation */}
       {isMenuOpen && <div className="md:hidden border-t border-primary/20 ">
         <nav className="flex flex-col py-4 space-y-2">
+          <a href="https://mav.airturn.com/product" className="px-4 py-2 text-foreground hover:text-primary hover:backdrop-blur-sm transition-colors rounded-lg">
+            Detail
+          </a>
           <a href="/support" className="px-4 py-2 text-foreground hover:text-primary hover:backdrop-blur-sm transition-colors rounded-lg">
             Support
           </a>

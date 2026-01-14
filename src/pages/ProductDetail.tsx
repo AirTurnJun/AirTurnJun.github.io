@@ -109,7 +109,7 @@ const ProductDetail = () => {
   }, {
     icon: Bluetooth,
     title: "Bluetooth 5 Wireless",
-    description: "Strong connection with over 200 feet of range"
+    description: "Strong connection with 120 feet of range"
   }, {
     icon: Volume2,
     title: "Tactile Control",
@@ -132,10 +132,10 @@ const ProductDetail = () => {
     value: "5 soft-touch with LED backlighting"
   }, {
     label: "Range",
-    value: "200+ feet"
+    value: "120 feet"
   }, {
     label: "Weight",
-    value: "Just a few ounces"
+    value: "3 oz"
   }, {
     label: "Warranty",
     value: "2-year with registration"
@@ -147,19 +147,22 @@ const ProductDetail = () => {
     <ShopifyBuyButton quantity={quantity} />
 
     {/* Main Product Section */}
-    <div className="pt-0 pb-0 min-h-screen flex items-center">
+    <div className="pt-24 min-h-screen flex items-center">
       <div className="container mx-auto px-0 ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
           {/* Product Images */}
-          <div className="flex gap-4">
+          <div className="px-5 flex flex-col gap-4 sm:flex-row">
             {/* Thumbnail Navigation */}
-            <div className="flex flex-col max-w-24 gap-2 aspect-square overflow-y-auto pr-2 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            <div
+              className="order-2 flex flex-row sm:order-1 sm:flex-col max-w-full sm:max-w-24 gap-2 sm:aspect-square overflow-x-auto sm:overflow-y-auto pr-0 sm:pr-2 pb-2 sm:pb-0 [&::-webkit-scrollbar]:hidden"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
               {productImages.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`w-24 h-24 rounded-md overflow-hidden border-2 transition-colors flex-shrink-0 ${selectedImage === index ? "border-primary" : "border-border"
+                  className={`w-20 h-20 sm:w-24 sm:h-24 rounded-md overflow-hidden border-2 transition-colors flex-shrink-0 ${selectedImage === index ? "border-primary" : "border-border"
                     }`}
                 >
                   <img src={image} alt={`MAV view ${index + 1}`} className="w-full h-full object-cover" />
@@ -168,19 +171,24 @@ const ProductDetail = () => {
             </div>
 
             {/* Main Image */}
-            <div className="flex-1 aspect-square rounded-lg overflow-hidden bg-muted">
+            <div className="order-1 sm:order-2 flex-1 aspect-square rounded-lg overflow-hidden bg-muted">
               <img src={productImages[selectedImage]} alt="AirTurn MAV" className="w-full h-full  object-cover" />
             </div>
           </div>
 
           {/* Product Info */}
-          <div className="space-y-6">
+          <div className="space-y-6 px-3">
             <div>
               <Badge variant="secondary" className="mb-2">New Release</Badge>
               <h1 className="text-4xl font-bold mb-2 text-primary">AirTurn MAV</h1>
               <p className="text-xl text-muted-foreground mb-4">
                 Wearable, waterproof, and ultra-durable Bluetooth media controller
               </p>
+              <ul className="list-disc pl-5 text-muted-foreground space-y-2 mb-4">
+                <li>Buttons, not gestures - Control music, podcasts, apps, and devices with real, tactile buttons you can use without looking, swiping, or pinching.</li>
+                <li>Made for motion - Wearable, rugged, and glove-friendly control that works while running, training, skiing, or moving through your day.</li>
+                <li>Keep your phone put away - Skip, pause, adjust volume, or trigger actions without stopping, fumbling, or pulling out your phone.</li>
+              </ul>
               <div className="flex items-center gap-2 mb-4">
                 <Badge variant="secondary" className="text-xs">In Stock</Badge>
                 <span className="text-muted-foreground text-sm">Ready to ship</span>
@@ -204,25 +212,42 @@ const ProductDetail = () => {
               </div>
 
               <div className="space-y-3">
-                <Button variant="hero" size="xl" className="w-full text-sky-500" onClick={handleAddToCart}>
-                  Add to Cart - ${(99.00 * quantity).toFixed(2)} (Free two-day shipping US only)
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button
+                  variant="hero"
+                  size="xl"
+                  className="w-full text-sky-500 whitespace-normal text-center leading-snug h-auto py-4 md:h-14 md:py-0 md:whitespace-nowrap flex-wrap md:flex-nowrap"
+                  onClick={handleAddToCart}
+                >
+                  <span className="w-full md:w-auto">Add to Cart - ${(99.00 * quantity).toFixed(2)}</span>
+                  <span className="w-full md:w-auto md:ml-1 inline-flex items-center justify-center">
+                    (Free two-day shipping US only)
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </span>
                 </Button>
               </div>
             </div>
 
             <div className="space-y-3 pt-4 border-t">
-              <div className="flex items-center gap-2 text-sm">
-                <Check className="w-4 h-4 text-green-500" />
-                <span>Free shipping on orders over $100</span>
+              <div className="flex items-start gap-2 text-sm">
+                <Check className="w-4 h-4 text-green-500 mt-0.5" />
+                <div>
+                  <p className="font-medium text-foreground">Free 2-day shipping on lower US orders</p>
+                  <p className="text-muted-foreground">If you're in the lower-48, get your order in 2 days, no charge.</p>
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Check className="w-4 h-4 text-green-500" />
-                <span>30-day money-back guarantee</span>
+              <div className="flex items-start gap-2 text-sm">
+                <Check className="w-4 h-4 text-green-500 mt-0.5" />
+                <div>
+                  <p className="font-medium text-foreground">30-day money-back guarantee</p>
+                  <p className="text-muted-foreground">Try MAV risk-free for 30 days. If it's not the right fit, return it for a full refund, no hassle.</p>
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Check className="w-4 h-4 text-green-500" />
-                <span>2-year manufacturer warranty</span>
+              <div className="flex items-start gap-2 text-sm">
+                <Check className="w-4 h-4 text-green-500 mt-0.5" />
+                <div>
+                  <p className="font-medium text-foreground">2-year manufacturer warranty</p>
+                  <p className="text-muted-foreground">Every MAV is backed by a 2-year manufacturer warranty, covering defects in materials.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -242,28 +267,6 @@ const ProductDetail = () => {
       </div>
     </section>
     */}
-
-    {/* Features Section */}
-    <section id="features" className="py-16 bg-muted/20">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4 text-primary">Stay in the Moment</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Manage music and call without stopping, slowing down, or pulling out your phone.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => <Card key={index} className="text-center p-6 border-primary/20">
-            <CardContent className="p-0">
-              <feature.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground text-sm">{feature.description}</p>
-            </CardContent>
-          </Card>)}
-        </div>
-      </div>
-    </section>
 
     {/* Specifications */}
     <section id="specs" className="py-16">
@@ -288,6 +291,28 @@ const ProductDetail = () => {
       </div>
     </section>
 
+    {/* Features Section */}
+    <section id="features" className="py-16 bg-muted/20">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4 text-primary">Stay in the Moment</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Manage music and call without stopping, slowing down, or pulling out your phone.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, index) => <Card key={index} className="text-center p-6 border-primary/20">
+            <CardContent className="p-0">
+              <feature.icon className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+              <p className="text-muted-foreground text-sm">{feature.description}</p>
+            </CardContent>
+          </Card>)}
+        </div>
+      </div>
+    </section>
+
     {/* Description */}
     <section className="py-16 bg-muted/20">
       <div className="container mx-auto px-4">
@@ -296,12 +321,12 @@ const ProductDetail = () => {
           <div className="prose prose-lg max-w-none">
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               The AirTurn MAV is a rugged, Bluetooth-enabled media controller designed for movement. With five tactile buttons
-              and a compact, strap-on design, it offers direct control over your apps—whether you're hiking, biking, paddling,
+              and a compact, strap-on design, it offers direct control over your apps, whether you're hiking, biking, paddling,
               or snowboarding. No need to dig out your phone; just press a button to stay in control.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               Built to withstand the elements, the MAV is waterproof, dustproof, and impact-resistant. Its sealed housing and
-              durable construction make it ideal for adventures in any weather—rain, snow, mud, or dust. The MAV gives you
+              durable construction make it ideal for adventures in any weather, rain, snow, mud, or dust. The MAV gives you
               physical control you can count on, whether you're wearing gloves or in motion.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
