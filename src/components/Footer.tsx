@@ -35,7 +35,7 @@ export const Footer = () => {
             attributes: {
               email: email,
               properties: {
-                $exchange_id: "EH3ss2MaQSpUzCP8QHSfQCaviU8mpSd3wxVegoSIJoM.HcUryP",
+                $exchange_id: "EH3ss2MaQSpUzCP8QHSfQCaviU8mpSd3wxVegoSIJoM.TWKGva",
                 $source: "Newsletter Signup Footer"
               }
             },

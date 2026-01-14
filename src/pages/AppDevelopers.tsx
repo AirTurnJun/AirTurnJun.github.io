@@ -36,7 +36,7 @@ const AppDevelopers = () => {
             attributes: {
               email,
               properties: {
-                $exchange_id: "EH3ss2MaQSpUzCP8QHSfQCaviU8mpSd3wxVegoSIJoM.HcUryP",
+                $exchange_id: "EH3ss2MaQSpUzCP8QHSfQCaviU8mpSd3wxVegoSIJoM.Vj2ixH",
                 $source: "Newsletter Signup App Developers",
               },
             },
@@ -61,7 +61,7 @@ const AppDevelopers = () => {
       if (response.ok) {
         toast({
           title: "Success!",
-          description: "You've been subscribed to our newsletter.",
+          description: "You've been subscribed to our developer newsletter.",
         });
         setEmail("");
       } else {
