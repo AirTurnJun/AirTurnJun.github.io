@@ -35,21 +35,21 @@ export const Footer = () => {
             attributes: {
               email: email,
               properties: {
-                $exchange_id: "EH3ss2MaQSpUzCP8QHSfQCaviU8mpSd3wxVegoSIJoM.TWKGva",
-                $source: "Newsletter Signup Footer"
+                $source: "MAV Developer Signup",
+                $exchange_id: "EH3ss2MaQSpUzCP8QHSfQCaviU8mpSd3wxVegoSIJoM.HcUryP"
               }
             },
             relationships: {
               form: {
                 data: {
                   type: "form",
-                  id: "SAExLV"
+                  id: "UfQXLz"
                 }
               },
               "form-version": {
                 data: {
                   type: "form-version",
-                  id: 10633661
+                  id: 17614367
                 }
               }
             }

@@ -24,7 +24,7 @@ const AppDevelopers = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("https://a.klaviyo.com/client/profiles/?company_id=Vj2ixH", {
+      const response = await fetch("https://a.klaviyo.com/client/profiles/?company_id=HcUryP", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,21 +36,31 @@ const AppDevelopers = () => {
             attributes: {
               email,
               properties: {
-                $exchange_id: "EH3ss2MaQSpUzCP8QHSfQCaviU8mpSd3wxVegoSIJoM.Vj2ixH",
-                $source: "Newsletter Signup App Developers",
+                $exchange_id: "kVDgHOKXZLmV9YeLwearKIf1T8n5n6cmHWPFWgWsp0M.HcUryP",
+                $source: "MAV Developer Signup",
+                $referrer: {
+                  ts: 1756317514,
+                  value: "",
+                  first_page: "https://www.airturn.com/",
+                },
+                $last_referrer: {
+                  ts: 1768499170,
+                  value: "",
+                  first_page: "https://www.airturn.com/pages/mav-signup-embed-codes",
+                },
               },
             },
             relationships: {
               form: {
                 data: {
                   type: "form",
-                  id: "SAExLV",
+                  id: "WF7aYB",
                 },
               },
               "form-version": {
                 data: {
                   type: "form-version",
-                  id: 10633661,
+                  id: 23796713,
                 },
               },
             },
