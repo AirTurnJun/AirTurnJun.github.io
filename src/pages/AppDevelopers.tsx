@@ -36,18 +36,12 @@ const AppDevelopers = () => {
             attributes: {
               email,
               properties: {
-                $exchange_id: "kVDgHOKXZLmV9YeLwearKIf1T8n5n6cmHWPFWgWsp0M.HcUryP",
-                $source: "MAV Developer Signup",
-                $referrer: {
-                  ts: 1756317514,
-                  value: "",
-                  first_page: "https://www.airturn.com/",
-                },
-                $last_referrer: {
-                  ts: 1768499170,
-                  value: "",
-                  first_page: "https://www.airturn.com/pages/mav-signup-embed-codes",
-                },
+                $consent_method: "Klaviyo Form",
+                $consent_form_id: "WF7aYB",
+                $consent_form_version: 23796713,
+                services: "{\"shopify\":{\"source\":\"form\"}}",
+                $timezone_offset: -7,
+                $exchange_id: "EH3ss2MaQSpUzCP8QHSfQCaviU8mpSd3wxVegoSIJoM.HcUryP",
               },
             },
             relationships: {

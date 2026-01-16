@@ -33,9 +33,13 @@ export const Footer = () => {
           data: {
             type: "profile",
             attributes: {
-              email: email,
+              email,
               properties: {
-                $source: "MAV Developer Signup",
+                $consent_method: "Klaviyo Form",
+                $consent_form_id: "UfQXLz",
+                $consent_form_version: 17614367,
+                services: "{\"shopify\":{\"source\":\"form\"}}",
+                $timezone_offset: -7,
                 $exchange_id: "EH3ss2MaQSpUzCP8QHSfQCaviU8mpSd3wxVegoSIJoM.HcUryP"
               }
             },

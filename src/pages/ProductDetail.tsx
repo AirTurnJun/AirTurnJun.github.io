@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "react-router-dom";
 import { ShopifyBuyButton } from "@/components/ShopifyBuyButton";
+import Gallery from "@/components/shadcn-studio/blocks/gallery-component-10/gallery-component-10";
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -89,7 +90,7 @@ const ProductDetail = () => {
       }
     }
   };
-  const productImages = ["https://www.airturn.com/cdn/shop/files/Perspective_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Top_View_LED_On_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Side_View_Square_1_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Bottom_View_no_Charger_Square_670x.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Bottom_View_with_Charger_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Lifestyle_Try_This_1800x1800.jpg?v=1750191761"];
+  const productImages = ["https://www.airturn.com/cdn/shop/files/Perspective_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Top_View_LED_On_Square_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Side_View_Square_1_1800x1800.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Bottom_View_no_Charger_Square_670x.jpg?v=1750191761", "https://www.airturn.com/cdn/shop/files/Bottom_View_with_Charger_Square_1800x1800.jpg?v=1750191761"];
   const features = [{
     icon: Watch,
     title: "Wearable Design",
@@ -140,6 +141,43 @@ const ProductDetail = () => {
     label: "Warranty",
     value: "2-year with registration"
   }];
+  const galleryImages = [{
+    src: "/lovable-uploads/IMG_3254.jpg",
+    alt: "MAV lifestyle photo 1",
+    className: "lg:row-span-2 max-lg:col-span-full"
+  }, {
+    src: "/lovable-uploads/IMG_096.jpg",
+    alt: "MAV lifestyle photo 2",
+    className: "row-span-3"
+  }, {
+    src: "/lovable-uploads/P1002256.jpg",
+    alt: "MAV lifestyle photo 3",
+    className: "lg:row-span-2"
+  }, {
+    src: "/lovable-uploads/IMG_3163.jpg",
+    alt: "MAV lifestyle photo 4",
+    className: "lg:row-span-2"
+  }, {
+    src: "/lovable-uploads/IMG_1436.jpg",
+    alt: "MAV lifestyle photo 5",
+    className: "row-span-3"
+  }, {
+    src: "/lovable-uploads/Weixin Image_2026011610303_63.png",
+    alt: "MAV lifestyle photo 6",
+    className: "row-span-4"
+  }, {
+    src: "/lovable-uploads/IMG_1457.jpg",
+    alt: "MAV lifestyle photo 7",
+    className: "lg:row-span-2"
+  }, {
+    src: "/lovable-uploads/IMG_1582.jpg",
+    alt: "MAV lifestyle photo 8",
+    className: "row-span-5"
+  }, {
+    src: "https://www.airturn.com/cdn/shop/files/Lifestyle_Try_This_1800x1800.jpg?v=1750191761",
+    alt: "MAV lifestyle photo 9",
+    className: "lg:row-span-2"
+  }];
   return <div className="min-h-screen bg-background">
     <Header />
 
@@ -171,8 +209,8 @@ const ProductDetail = () => {
             </div>
 
             {/* Main Image */}
-            <div className="order-1 sm:order-2 flex-1 aspect-square rounded-lg overflow-hidden bg-muted">
-              <img src={productImages[selectedImage]} alt="AirTurn MAV" className="w-full h-full  object-cover" />
+            <div className="order-1 sm:order-2 flex-1 aspect-square overflow-hidden">
+              <img src={productImages[selectedImage]} alt="AirTurn MAV" className="rounded-lg w-full h-auto object-cover" />
             </div>
           </div>
 
@@ -269,6 +307,8 @@ const ProductDetail = () => {
       </div>
     </section>
     */}
+
+    <Gallery data={galleryImages} />
 
     {/* Specifications */}
     <section id="specs" className="py-16">

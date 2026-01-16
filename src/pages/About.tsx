@@ -46,6 +46,37 @@ const About = () => {
               </p>
             </div>
 
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="overflow-hidden rounded-xl border border-primary/20 bg-muted shadow-card">
+                <img
+                  src="/lovable-uploads/IMG_7673.jpg"
+                  alt="MAV product photo"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="overflow-hidden rounded-xl border border-primary/20 bg-muted shadow-card">
+                <img
+                  src="/lovable-uploads/image (1).png"
+                  alt="MAV in use"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="overflow-hidden rounded-xl border border-primary/20 bg-muted shadow-card">
+                <img
+                  src="/lovable-uploads/image (2).png"
+                  alt="MAV lifestyle photo"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="overflow-hidden rounded-xl border border-primary/20 bg-muted shadow-card">
+                <img
+                  src="/lovable-uploads/image (3).png"
+                  alt="MAV outdoors"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+
             <div className="space-y-4 border-t border-primary/20 pt-8">
               <h2 className="text-3xl font-bold text-primary">About AirTurn</h2>
               <p className="text-muted-foreground">
@@ -60,17 +91,30 @@ const About = () => {
             </div>
 
             <div className="pt-6">
-              <Card className="border-primary/20 shadow-card w-full sm:w-1/2 mx-auto">
-                <CardContent className="p-0">
-                  <div className="bg-gradient-card rounded-lg overflow-hidden">
-                    <img
-                      src="https://cdn.shopify.com/s/files/1/1109/4160/files/group_photo_web_1024x1024.jpg?v=1678469932"
-                      alt="AirTurn team group photo"
-                      className="w-full h-auto"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <Card className="border-primary/20 shadow-card w-full">
+                  <CardContent className="p-0">
+                    <div className="bg-gradient-card rounded-lg overflow-hidden aspect-[4/3]">
+                      <img
+                        src="https://cdn.shopify.com/s/files/1/1109/4160/files/group_photo_web_1024x1024.jpg?v=1678469932"
+                        alt="AirTurn team group photo"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card className="border-primary/20 shadow-card w-full">
+                  <CardContent className="p-0">
+                    <div className="bg-gradient-card rounded-lg overflow-hidden aspect-[4/3]">
+                      <img
+                        src="/lovable-uploads/8cf850becff1115b9bef8ea179d2436d.jpg"
+                        alt="AirTurn workshop"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </div>
