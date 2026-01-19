@@ -29,7 +29,7 @@ const WarrantyPolicy = () => {
             </p>
             <div className="mt-8">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link to="/warranty">
+                <Link to="/warranty" data-track-button="true">
                   Register Your Device
                 </Link>
               </Button>

@@ -16,6 +16,8 @@ import Downloads from "./pages/Downloads";
 import ShippingPolicy from "./pages/ShippingPolicy";
 import AppDevelopers from "./pages/AppDevelopers";
 import NotFound from "./pages/NotFound";
+import { MetaPixelPageView } from "@/components/MetaPixelPageView";
+import { MetaPixelAutoEvents } from "@/components/MetaPixelAutoEvents";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <MetaPixelPageView />
+        <MetaPixelAutoEvents />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/product" element={<ProductDetail />} />

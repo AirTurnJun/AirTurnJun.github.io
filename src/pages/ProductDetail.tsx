@@ -10,6 +10,14 @@ import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "react-router-dom";
 import { ShopifyBuyButton } from "@/components/ShopifyBuyButton";
 import Gallery from "@/components/shadcn-studio/blocks/gallery-component-10/gallery-component-10";
+import { trackAddToCart, trackViewContent } from "@/lib/metaPixel";
+
+const PRODUCT_META = {
+  id: "airturn-mav",
+  name: "AirTurn MAV",
+  price: 99.0,
+  currency: "USD"
+};
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -17,7 +25,6 @@ const ProductDetail = () => {
   const {
     toast
   } = useToast();
-
   useEffect(() => {
     if (location.hash) {
       const elementId = location.hash.replace('#', '');
@@ -29,8 +36,13 @@ const ProductDetail = () => {
       }
     }
   }, [location]);
+
+  useEffect(() => {
+    trackViewContent(PRODUCT_META);
+  }, []);
   const handleAddToCart = () => {
     console.log('handleAddToCart called, quantity:', quantity);
+    trackAddToCart(PRODUCT_META, quantity);
 
     // Check if Shopify function exists
     if (typeof (window as any).addToShopifyCart === 'function') {

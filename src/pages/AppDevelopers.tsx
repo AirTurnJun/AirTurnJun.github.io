@@ -24,37 +24,38 @@ const AppDevelopers = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("https://a.klaviyo.com/client/profiles/?company_id=HcUryP", {
+      const response = await fetch("https://a.klaviyo.com/client/subscriptions/?company_id=HcUryP", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          revision: "2024-10-15",
+          "Content-Type": "application/vnd.api+json",
+          Accept: "application/vnd.api+json",
+          revision: "2024-07-15",
         },
         body: JSON.stringify({
           data: {
-            type: "profile",
+            type: "subscription",
             attributes: {
-              email,
-              properties: {
-                $consent_method: "Klaviyo Form",
-                $consent_form_id: "WF7aYB",
-                $consent_form_version: 23796713,
-                services: "{\"shopify\":{\"source\":\"form\"}}",
-                $timezone_offset: -7,
-                $exchange_id: "EH3ss2MaQSpUzCP8QHSfQCaviU8mpSd3wxVegoSIJoM.HcUryP",
+              profile: {
+                data: {
+                  type: "profile",
+                  attributes: {
+                    email,
+                  },
+                },
               },
+              custom_source: "MAV Developer Newsletter",
             },
             relationships: {
+              list: {
+                data: {
+                  type: "list",
+                  id: "Vj2ixH",
+                },
+              },
               form: {
                 data: {
                   type: "form",
                   id: "WF7aYB",
-                },
-              },
-              "form-version": {
-                data: {
-                  type: "form-version",
-                  id: 23796713,
                 },
               },
             },
@@ -69,6 +70,8 @@ const AppDevelopers = () => {
         });
         setEmail("");
       } else {
+        const errorBody = await response.json().catch(() => ({}));
+        console.error("Klaviyo subscription error:", errorBody);
         throw new Error("Subscription failed");
       }
     } catch (error) {

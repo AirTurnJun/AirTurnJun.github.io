@@ -1,10 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { trackCustom } from "@/lib/metaPixel";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const handleBuyNowClick = (placement: string) => {
+    trackCustom("BuyNowClick", {
+      placement,
+      path: window.location.pathname
+    });
+  };
   return <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-primary/20">
     <div className="container mx-auto px-4">
       <div className="flex items-center justify-between h-16">
@@ -40,7 +46,9 @@ export const Header = () => {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
           <Button variant="hero" size="sm" className="bg-slate-50" asChild>
-            <a href="/product">Get It Now (Free 2-day shipping in US)</a>
+            <a href="/product" data-track-button="true" onClick={() => handleBuyNowClick("header-cta-desktop")}>
+              Get It Now (Free 2-day shipping in US)
+            </a>
           </Button>
         </div>
 
@@ -72,7 +80,9 @@ export const Header = () => {
           </a>
           <div className="px-4 pt-4">
             <Button variant="hero" size="sm" className="w-full bg-slate-50" asChild>
-              <a href="/product">Buy Now (Free two-day shipping in US)</a>
+              <a href="/product" data-track-button="true" onClick={() => handleBuyNowClick("header-cta-mobile")}>
+                Buy Now (Free two-day shipping in US)
+              </a>
             </Button>
           </div>
         </nav>

@@ -23,37 +23,38 @@ export const Footer = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('https://a.klaviyo.com/client/profiles/?company_id=TWKGva', {
-        method: 'POST',
+      const response = await fetch("https://a.klaviyo.com/client/subscriptions/?company_id=HcUryP", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'revision': '2024-10-15',
+          "Content-Type": "application/vnd.api+json",
+          Accept: "application/vnd.api+json",
+          revision: "2024-07-15"
         },
         body: JSON.stringify({
           data: {
-            type: "profile",
+            type: "subscription",
             attributes: {
-              email,
-              properties: {
-                $consent_method: "Klaviyo Form",
-                $consent_form_id: "UfQXLz",
-                $consent_form_version: 17614367,
-                services: "{\"shopify\":{\"source\":\"form\"}}",
-                $timezone_offset: -7,
-                $exchange_id: "EH3ss2MaQSpUzCP8QHSfQCaviU8mpSd3wxVegoSIJoM.HcUryP"
-              }
+              profile: {
+                data: {
+                  type: "profile",
+                  attributes: {
+                    email
+                  }
+                }
+              },
+              custom_source: "MAV Newsletter"
             },
             relationships: {
+              list: {
+                data: {
+                  type: "list",
+                  id: "TWKGva"
+                }
+              },
               form: {
                 data: {
                   type: "form",
                   id: "UfQXLz"
-                }
-              },
-              "form-version": {
-                data: {
-                  type: "form-version",
-                  id: 17614367
                 }
               }
             }
@@ -68,7 +69,9 @@ export const Footer = () => {
         });
         setEmail("");
       } else {
-        throw new Error('Subscription failed');
+        const errorBody = await response.json().catch(() => ({}));
+        console.error("Klaviyo subscription error:", errorBody);
+        throw new Error("Subscription failed");
       }
     } catch (error) {
       toast({
@@ -125,22 +128,22 @@ export const Footer = () => {
           </p>
           <div className="flex gap-4">
             <Button variant="ghost" size="icon" className="hover:bg-primary/20" asChild>
-              <a href="https://www.facebook.com/airturn/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/airturn/" target="_blank" rel="noopener noreferrer" data-track-button="true">
                 <Facebook className="h-5 w-5" />
               </a>
             </Button>
             <Button variant="ghost" size="icon" className="hover:bg-primary/20" asChild>
-              <a href="https://x.com/airturn" target="_blank" rel="noopener noreferrer">
+              <a href="https://x.com/airturn" target="_blank" rel="noopener noreferrer" data-track-button="true">
                 <Twitter className="h-5 w-5" />
               </a>
             </Button>
             <Button variant="ghost" size="icon" className="hover:bg-primary/20" asChild>
-              <a href="https://www.instagram.com/airturnofficial/?hl=en" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/airturnofficial/?hl=en" target="_blank" rel="noopener noreferrer" data-track-button="true">
                 <Instagram className="h-5 w-5" />
               </a>
             </Button>
             <Button variant="ghost" size="icon" className="hover:bg-primary/20" asChild>
-              <a href="https://www.youtube.com/c/AirTurnVideo" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.youtube.com/c/AirTurnVideo" target="_blank" rel="noopener noreferrer" data-track-button="true">
                 <Youtube className="h-5 w-5" />
               </a>
             </Button>
@@ -160,7 +163,7 @@ export const Footer = () => {
             <a href="/warranty-policy" className="block text-muted-foreground hover:text-primary transition-colors">
               Warranty Policy
             </a>
-            <a href="/app-developers" className="block text-muted-foreground hover:text-primary transition-colors">
+            <a href="/app-developers" className="block font-bold underline text-muted-foreground hover:text-primary transition-colors">
               App Developers
             </a>
           </div>
