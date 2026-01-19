@@ -6,11 +6,16 @@ import { useToast } from "@/hooks/use-toast";
 
 const AppDevelopers = () => {
   const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (website) {
+      return;
+    }
 
     if (!email || !email.includes("@")) {
       toast({
@@ -122,6 +127,18 @@ const AppDevelopers = () => {
                 Enter your email below, or just give us a call, to get started.
               </p>
               <form onSubmit={handleSubscribe} className="flex flex-col gap-4 sm:flex-row items-center">
+                <div className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+                  <label htmlFor="dev-newsletter-website">Website</label>
+                  <input
+                    id="dev-newsletter-website"
+                    name="website"
+                    type="text"
+                    autoComplete="off"
+                    tabIndex={-1}
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                  />
+                </div>
                 <input
                   type="email"
                   placeholder="Enter your email"

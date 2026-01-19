@@ -5,11 +5,16 @@ import { useToast } from "@/hooks/use-toast";
 
 export const Footer = () => {
   const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (website) {
+      return;
+    }
 
     if (!email || !email.includes('@')) {
       toast({
@@ -93,6 +98,18 @@ export const Footer = () => {
             Get the latest updates on MAV features, firmware updates, and adventure stories from our community.
           </p>
           <form onSubmit={handleSubscribe} className="flex flex-col items-center sm:flex-row gap-4 max-w-md mx-auto">
+            <div className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+              <label htmlFor="newsletter-website">Website</label>
+              <input
+                id="newsletter-website"
+                name="website"
+                type="text"
+                autoComplete="off"
+                tabIndex={-1}
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+              />
+            </div>
             <input
               type="email"
               placeholder="Enter your email"
