@@ -12,6 +12,22 @@ type Integration = {
 }[];
 
 const AppIntegration = ({ integrations }: { integrations: Integration }) => {
+  const integrationCards = integrations.map((app, index) => (
+    <Card
+      key={index}
+      className="text-card-foreground flex w-[9rem] shrink-0 flex-col gap-4 rounded-xl border border-none bg-muted py-4 shadow-lg sm:w-[12rem] sm:gap-6 sm:py-6"
+    >
+      <CardContent className="flex flex-col items-center gap-2 sm:gap-2.5">
+        <Avatar className="size-12 rounded-xl sm:size-16">
+          <AvatarFallback className={cn("rounded-xl")}>
+            <img src={app.image} alt={app.name} className="h-full w-full object-contain" />
+          </AvatarFallback>
+        </Avatar>
+        <CardTitle className="text-base font-medium sm:text-2xl">{app.name}</CardTitle>
+      </CardContent>
+    </Card>
+  ));
+
   return (
     <section className="py-8 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -31,24 +47,17 @@ const AppIntegration = ({ integrations }: { integrations: Integration }) => {
       <div className="relative">
         <div className="from-background pointer-events-none absolute inset-y-0 left-0 z-[1] w-[8.75rem] bg-gradient-to-r to-transparent max-sm:hidden" />
         <div className="from-background pointer-events-none absolute inset-y-0 right-0 z-[1] w-[8.75rem] bg-gradient-to-l to-transparent max-sm:hidden" />
-        <div className="w-full overflow-hidden">
+        <div className="w-full overflow-hidden max-sm:hidden">
           <Marquee pauseOnHover duration={150} gap={1.5} className="p-2 sm:p-3">
-            {integrations.map((app, index) => (
-              <Card
-                key={index}
-                className="text-card-foreground flex flex-col gap-4 sm:gap-6 rounded-xl border py-4 sm:py-6 bg-muted border-none shadow-lg w-[9rem] sm:w-[12rem]"
-              >
-                <CardContent className="flex flex-col items-center gap-2 sm:gap-2.5">
-                  <Avatar className="size-12 sm:size-16 rounded-xl">
-                    <AvatarFallback className={cn("rounded-xl")}>
-                      <img src={app.image} alt={app.name} className="h-full w-full object-contain" />
-                    </AvatarFallback>
-                  </Avatar>
-                  <CardTitle className="text-base sm:text-2xl font-medium">{app.name}</CardTitle>
-                </CardContent>
-              </Card>
-            ))}
+            {integrationCards}
           </Marquee>
+        </div>
+        <div className="sm:hidden">
+          <div className="overflow-x-auto">
+            <div className="flex w-max gap-3 px-4 pb-2">
+              {integrationCards}
+            </div>
+          </div>
         </div>
       </div>
     </section>

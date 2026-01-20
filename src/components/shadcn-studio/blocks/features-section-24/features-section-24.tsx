@@ -158,7 +158,7 @@ const Features = ({ featuresList }: { featuresList: Features }) => {
   return (
     <section className="bg-[image:repeating-linear-gradient(45deg,color-mix(in_oklab,hsl(var(--border))_40%,transparent)_0,color-mix(in_oklab,hsl(var(--border))_40%,transparent)_1px,transparent_0,transparent_50%)] bg-[size:12px_12px] bg-fixed px-4 sm:px-6 lg:px-8">
       <div className="bg-background mx-auto max-w-7xl border-x pt-8 sm:pt-16 lg:pt-24">
-        <div className="mb-12 space-y-4 text-center max-md:px-4 sm:mb-16 lg:mb-24">
+        <div className="mb-2 space-y-4 text-center max-md:px-4 sm:mb-4 lg:mb-6">
 
           <MotionPreset
             component="h2"
@@ -184,7 +184,7 @@ const Features = ({ featuresList }: { featuresList: Features }) => {
         </div>
 
         <MotionPreset delay={0.8} fade slide={{ direction: "down" }} transition={{ duration: 0.5 }}>
-          <div ref={containerRef} className="grid gap-6 md:grid-cols-2 pt-20">
+          <div ref={containerRef} className="grid gap-6 md:grid-cols-2 py-20">
             <div className="relative hidden w-full space-y-20 px-6 py-20 md:block">
               {featuresList.map((feature, index) => (
                 <FeatureItem
@@ -238,7 +238,7 @@ const Features = ({ featuresList }: { featuresList: Features }) => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-16 md:hidden">
+            <div className="flex flex-col gap-8 md:hidden">
               {featuresList.map((feature, index) => (
                 <div key={index} className="space-y-6">
                   <div className="relative px-6 py-5">
