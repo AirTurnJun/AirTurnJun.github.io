@@ -58,7 +58,7 @@ export const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button variant="hero" size="xl" className="group text-sky-500 bg-gray-950 hover:bg-gray-800" asChild>
             <a href="/product" data-track-button="true">
-              Get Your MAV Now
+              View Product Info
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </a>
           </Button>

@@ -195,3 +195,15 @@ All colors MUST be HSL.
     }
   }
 }
+/* Yotpo bottom line stars */
+.yotpo-sr-star-empty path {
+  fill: #e5e7eb !important;
+  stroke: #e5e7eb !important;
+}
+
+/* Yotpo bottom line text */
+.yotpo-sr-bottom-line-text,
+.yotpo-sr-bottom-line-new-review,
+.yotpo-sr-bottom-line-summary {
+  color: #ffffff !important;
+}

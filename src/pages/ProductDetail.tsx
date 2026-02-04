@@ -8,7 +8,6 @@ import { Shield, Smartphone, Battery, Droplets, ArrowRight, Check, Bluetooth, Wa
 import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "react-router-dom";
-import { ShopifyBuyButton } from "@/components/ShopifyBuyButton";
 import Gallery from "@/components/shadcn-studio/blocks/gallery-component-10/gallery-component-10";
 import { trackAddToCart, trackViewContent } from "@/lib/metaPixel";
 
@@ -39,6 +38,46 @@ const ProductDetail = () => {
 
   useEffect(() => {
     trackViewContent(PRODUCT_META);
+  }, []);
+
+  useEffect(() => {
+    const src = "https://cdn-widgetsrepository.yotpo.com/v1/loader/7gMNbgaKhxBYoPhRUtp3TJ2vGl7MODBZS6PpNku4";
+    let script = document.querySelector(`script[src="${src}"]`) as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement("script");
+      script.src = src;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+
+    const refresh = () => {
+      (window as any)?.yotpo?.refreshWidgets?.();
+    };
+
+    if (script.hasAttribute("data-loaded")) {
+      refresh();
+      return;
+    }
+
+    const onLoad = () => {
+      script?.setAttribute("data-loaded", "true");
+      refresh();
+    };
+
+    script.addEventListener("load", onLoad);
+    const onClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      const reviewLink = target?.closest?.(".yotpo-sr-bottom-line-new-review");
+      if (reviewLink) {
+        event.preventDefault();
+        window.open("https://yotpo.com/go/736B2WqD", "_blank");
+      }
+    };
+    document.addEventListener("click", onClick);
+    return () => {
+      script.removeEventListener("load", onLoad);
+      document.removeEventListener("click", onClick);
+    };
   }, []);
   const handleAddToCart = () => {
     console.log('handleAddToCart called, quantity:', quantity);
@@ -193,9 +232,6 @@ const ProductDetail = () => {
   return <div className="min-h-screen bg-background">
     <Header />
 
-    {/* Hidden Shopify Buy Button for cart integration */}
-    <ShopifyBuyButton quantity={quantity} />
-
     {/* Main Product Section */}
     <div className="pt-24 min-h-screen flex items-center">
       <div className="container mx-auto px-0 ">
@@ -244,6 +280,13 @@ const ProductDetail = () => {
                 <span className="text-muted-foreground text-sm">Ready to ship</span>
               </div>
             </div>
+
+            <div
+              className="yotpo-widget-instance"
+              data-yotpo-instance-id="345560"
+              data-yotpo-product-id="9012083294467"
+              data-yotpo-section-id="product"
+            />
 
             <div className="text-3xl font-bold text-primary">$99.00</div>
 

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ShopifyBuyButton } from "@/components/ShopifyBuyButton";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { trackCustom } from "@/lib/metaPixel";
@@ -11,7 +12,30 @@ export const Header = () => {
       path: window.location.pathname
     });
   };
+  const handleAddToCart = (placement: string) => {
+    handleBuyNowClick(placement);
+    if (typeof (window as any).addToShopifyCart === "function") {
+      (window as any).addToShopifyCart(1);
+      return;
+    }
+    const shopifyUI = (window as any).shopifyUI;
+    const shopifyProduct = (window as any).shopifyProductComponent;
+    if (shopifyUI && shopifyProduct && shopifyUI.components?.cart?.length) {
+      const cart = shopifyUI.components.cart[0];
+      const variant = shopifyProduct.model?.selectedVariant;
+      if (variant) {
+        cart.addVariantToCart(variant, 1).then(() => cart.open());
+        return;
+      }
+    }
+    setTimeout(() => {
+      if (typeof (window as any).addToShopifyCart === "function") {
+        (window as any).addToShopifyCart(1);
+      }
+    }, 1000);
+  };
   return <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-primary/20">
+    <ShopifyBuyButton quantity={1} />
     <div className="container mx-auto px-4">
       <div className="flex items-center justify-between h-16">
         {/* Logo */}
@@ -46,7 +70,14 @@ export const Header = () => {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
           <Button variant="hero" size="sm" className="bg-slate-50" asChild>
-            <a href="/product" data-track-button="true" onClick={() => handleBuyNowClick("header-cta-desktop")}>
+            <a
+              href="/product"
+              data-track-button="true"
+              onClick={(event) => {
+                event.preventDefault();
+                handleAddToCart("header-cta-desktop");
+              }}
+            >
               Get It Now (Free 2-day shipping in US)
             </a>
           </Button>
@@ -80,7 +111,14 @@ export const Header = () => {
           </a>
           <div className="px-4 pt-4">
             <Button variant="hero" size="sm" className="w-full bg-slate-50" asChild>
-              <a href="/product" data-track-button="true" onClick={() => handleBuyNowClick("header-cta-mobile")}>
+              <a
+                href="/product"
+                data-track-button="true"
+                onClick={(event) => {
+                  event.preventDefault();
+                  handleAddToCart("header-cta-mobile");
+                }}
+              >
                 Buy Now (Free two-day shipping in US)
               </a>
             </Button>
