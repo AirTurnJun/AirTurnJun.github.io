@@ -3,12 +3,12 @@ import type { TestimonialItem } from "@/components/shadcn-studio/blocks/testimon
 
 const testimonials: TestimonialItem[] = [
   {
-    name: "Paityn Lipshutz",
-    role: "CEO & Co Founder at Lemonsqueezy",
+    name: "Schumann846",
+    role: "",
     avatar:
-      "https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-2.png?width=40&height=40&format=auto",
+      "/avatar/schumann846.jpg",
     content:
-      "Excellent product—durable, intuitive, and exactly what I needed. Customer service was outstanding and very helpful.",
+      "This is a must have for skiers and snowboarders. I have one and it is fantastic.I use it skiing, riding my motorcycle, or with my ski helmet on my e-bike. You can answer or decline calls, control volume, advance to next or last song , but this is the kicker it's rechargeable and has 50 hours of run time. You won't find this anywhere else. Air Turn Mav is fantastic! I use it daily",
   },
   {
     name: "Angel Lubin",

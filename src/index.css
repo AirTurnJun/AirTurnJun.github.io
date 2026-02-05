@@ -207,3 +207,97 @@ All colors MUST be HSL.
 .yotpo-sr-bottom-line-summary {
   color: #ffffff !important;
 }
+
+/* Yotpo reviews widget (dark text) */
+.yotpo-reviews-dark .yotpo-main-widget-layout,
+.yotpo-reviews-dark .yotpo-review-title,
+.yotpo-reviews-dark .yotpo-reviewer-name,
+.yotpo-reviews-dark .yotpo-review-content,
+.yotpo-reviews-dark .yotpo-read-more-text,
+.yotpo-reviews-dark .yotpo-review-votes-text,
+.yotpo-reviews-dark .yotpo-review-votes-number,
+.yotpo-reviews-dark .yotpo-date-label,
+.yotpo-reviews-dark .yotpo-date-format,
+.yotpo-reviews-dark .yotpo-bottom-line-text,
+.yotpo-reviews-dark .yotpo-bottom-line-basic-text,
+.yotpo-reviews-dark .yotpo-bottom-line-score,
+.yotpo-reviews-dark .yotpo-dropdown-label,
+.yotpo-reviews-dark .yotpo-dropdown-label--inside,
+.yotpo-reviews-dark .yotpo-dropdown-option-label,
+.yotpo-reviews-dark .yotpo-selected-value,
+.yotpo-reviews-dark .yotpo-selected-value__label--inside,
+.yotpo-reviews-dark .yotpo-selected-value__value,
+.yotpo-reviews-dark .formated-value,
+.yotpo-reviews-dark .yotpo-search-input,
+.yotpo-reviews-dark .yotpo-media-select,
+.yotpo-reviews-dark .yotpo-radio-base {
+  color: #ffffff !important;
+}
+
+/* Filters / inputs surfaces */
+.yotpo-reviews-dark .yotpo-search-input,
+.yotpo-reviews-dark .yotpo-search-filter-container,
+.yotpo-reviews-dark .yotpo-dropdown-base,
+.yotpo-reviews-dark .yotpo-dropdown-closable,
+.yotpo-reviews-dark .yotpo-media-select {
+  background-color: rgba(15, 23, 42, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.yotpo-reviews-dark .yotpo-search-filter.yotpo-free-search-filter-container {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  background-color: rgba(15, 23, 42, 0.6) !important;
+}
+
+.yotpo-reviews-dark .yotpo-dropdown-content-wrapper {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.yotpo-reviews-dark .yotpo-dropdown-option {
+  background-color: transparent !important;
+}
+
+.yotpo-reviews-dark .yotpo-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.yotpo-reviews-dark .yotpo-dropdown-arrow-icon path,
+.yotpo-reviews-dark .yotpo-score-filter-full-star {
+  stroke: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+.yotpo-reviews-dark .yotpo-selected-icon path {
+  fill: #ffffff !important;
+}
+
+.yotpo-reviews-dark .yotpo-radio-icon circle,
+.yotpo-reviews-dark .yotpo-vertical-border {
+  stroke: rgba(255, 255, 255, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Review separators */
+.yotpo-reviews-dark .yotpo-review-border-smooth {
+  height: 1px !important;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.08)) !important;
+  border: none !important;
+}
+
+.yotpo-reviews-dark .yotpo-icon-button {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+}
+
+.yotpo-reviews-dark .yotpo-search-filter__icon-button {
+  --background: rgba(255, 255, 255, 0.12) !important;
+  --color: #ffffff !important;
+  --hover-background: rgba(255, 255, 255, 0.22) !important;
+  --hover-color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.yotpo-reviews-dark .yotpo-icon-button__icon path {
+  fill: #ffffff !important;
+}

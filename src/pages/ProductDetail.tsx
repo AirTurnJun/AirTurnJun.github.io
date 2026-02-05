@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Shield, Smartphone, Battery, Droplets, ArrowRight, Check, Bluetooth, Watch, Volume2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type CSSProperties } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "react-router-dom";
 import Gallery from "@/components/shadcn-studio/blocks/gallery-component-10/gallery-component-10";
@@ -281,12 +281,23 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <div
-              className="yotpo-widget-instance"
-              data-yotpo-instance-id="345560"
-              data-yotpo-product-id="9012083294467"
-              data-yotpo-section-id="product"
-            />
+            <div className="flex items-center justify-start gap-3">
+              <div
+                className="yotpo-widget-instance"
+                data-yotpo-instance-id="345560"
+                data-yotpo-product-id="9012083294467"
+                data-yotpo-section-id="product"
+              />
+              <a
+                href="https://yotpo.com/go/736B2WqD"
+                target="_blank"
+                rel="noreferrer"
+                style={{ marginBottom: "5px" }}
+                className="whitespace-nowrap font-medium text-white hover:underline"
+              >
+                Write a review
+              </a>
+            </div>
 
             <div className="text-3xl font-bold text-primary">$99.00</div>
 
@@ -362,6 +373,30 @@ const ProductDetail = () => {
       </div>
     </section>
     */}
+
+    <section id="reviews" className="py-16 yotpo-reviews-dark">
+      <div className="container mx-auto px-4">
+        <div
+          className="yotpo-widget-instance"
+          data-yotpo-instance-id="345545"
+          data-yotpo-product-id="9012083294467"
+          data-yotpo-name="AirTurn MAV"
+          data-yotpo-url="https://www.airturn.com/products/airturn-mav"
+          data-yotpo-image-url="https://www.airturn.com/cdn/shop/files/Perspective_Square_large.jpg?v=1750191761"
+          data-yotpo-price="99.00"
+          data-yotpo-currency="USD"
+          data-yotpo-description={`<p>Wearable, waterproof, and ultra-durable Bluetooth media controller.<br></p><ul><li>Control music, media, camera, and apps—without reaching for your phone</li><li>Navigate playlists, skip tracks, start/stop recording</li><li>Take photos or video remotely</li></ul><h4>Wearable Bluetooth Control for Active Lifestyles</h4><p>The AirTurn MAV is a rugged, Bluetooth-enabled media controller designed for movement. With four tactile buttons and a compact, strap-on design, it offers direct control over your apps—whether you’re hiking, biking, paddling, or snowboarding. No need to dig out your phone; just press a button to stay in control.</p><h4>Built to Withstand the Elements</h4><p>Waterproof, dustproof, and impact-resistant, the MAV is built to handle outdoor conditions in any weather.</p><h4>Direct Button Control in Motion</h4><p>The MAV gives you physical control you can count on. Whether you’re wearing gloves or in motion, the soft-touch buttons deliver clear tactile feedback for confident presses.</p><h4>Lightweight and Low-Profile</h4><p>Weighing just a few ounces, the MAV stays out of the way while staying ready for action. Mount it to your wrist, bike, pack, or gear with the included strap for comfortable access without adding bulk.</p><p>Featuring a compact, low-profile design, the AirTurn MAV delivers direct tactile control in a wearable, waterproof housing.</p><ul><li><strong>Wearable Design:</strong> Straps securely to your arm, wrist, gear, or handlebars.</li><li><strong>Rugged Yet Lightweight:</strong> Tough polymer casing keeps weight to a minimum.</li><li><strong>Weatherproof Build:</strong> Water, dust, and shock resistant.</li><li><strong>Extended Battery Life:</strong> Enjoy up to 200+ hours on a single charge.</li><li><strong>Tactile Buttons:</strong> Five soft, pressable buttons with LED backlighting.</li><li><strong>Bluetooth 5 Wireless:</strong> Strong, low-latency connection.</li></ul><p>Product weight: oz (kg)</p><p>Product Dimensions: in (mm)</p>`}
+          style={{
+            "--text-color": "#ffffff",
+            "--yotpo-primary-text-black": "#ffffff",
+            "--yotpo-black": "#ffffff",
+            "--yotpo-b2b-dark-grey": "#d1d5db",
+            "--yotpo-medium-grey": "#d1d5db",
+            "--yotpo-separator-line-grey": "rgba(255, 255, 255, 0.2)"
+          } as CSSProperties}
+        />
+      </div>
+    </section>
 
     <Gallery data={galleryImages} />
 
