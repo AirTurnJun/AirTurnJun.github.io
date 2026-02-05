@@ -288,15 +288,6 @@ const ProductDetail = () => {
                 data-yotpo-product-id="9012083294467"
                 data-yotpo-section-id="product"
               />
-              <a
-                href="https://yotpo.com/go/736B2WqD"
-                target="_blank"
-                rel="noreferrer"
-                style={{ marginBottom: "5px" }}
-                className="whitespace-nowrap font-medium text-white hover:underline"
-              >
-                Write a review
-              </a>
             </div>
 
             <div className="text-3xl font-bold text-primary">$99.00</div>
