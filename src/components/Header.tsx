@@ -2,18 +2,13 @@ import { Button } from "@/components/ui/button";
 import { ShopifyBuyButton } from "@/components/ShopifyBuyButton";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { trackCustom } from "@/lib/metaPixel";
+import { trackAddToCart } from "@/lib/metaPixel";
+import { PRODUCT_META } from "@/lib/productMeta";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const handleBuyNowClick = (placement: string) => {
-    trackCustom("BuyNowClick", {
-      placement,
-      path: window.location.pathname
-    });
-  };
-  const handleAddToCart = (placement: string) => {
-    handleBuyNowClick(placement);
+  const handleAddToCart = () => {
+    trackAddToCart(PRODUCT_META, 1);
     if (typeof (window as any).addToShopifyCart === "function") {
       (window as any).addToShopifyCart(1);
       return;
@@ -75,7 +70,7 @@ export const Header = () => {
               data-track-button="true"
               onClick={(event) => {
                 event.preventDefault();
-                handleAddToCart("header-cta-desktop");
+                handleAddToCart();
               }}
             >
               Get It Now (Free 2-day shipping in US)
@@ -116,7 +111,7 @@ export const Header = () => {
                 data-track-button="true"
                 onClick={(event) => {
                   event.preventDefault();
-                  handleAddToCart("header-cta-mobile");
+                  handleAddToCart();
                 }}
               >
                 Buy Now (Free two-day shipping in US)

@@ -10,13 +10,8 @@ import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "react-router-dom";
 import Gallery from "@/components/shadcn-studio/blocks/gallery-component-10/gallery-component-10";
 import { trackAddToCart, trackViewContent } from "@/lib/metaPixel";
+import { PRODUCT_META } from "@/lib/productMeta";
 
-const PRODUCT_META = {
-  id: "airturn-mav",
-  name: "AirTurn MAV",
-  price: 99.0,
-  currency: "USD"
-};
 const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
