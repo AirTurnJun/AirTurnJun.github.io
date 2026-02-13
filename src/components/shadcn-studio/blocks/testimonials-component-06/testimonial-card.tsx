@@ -6,10 +6,19 @@ type Testimonial = {
   role: string;
   avatar: string;
   content: string;
+  link?: string;
+};
+
+const getFallbackAvatar = (seed: string) => {
+  const hash = Array.from(seed).reduce((total, char) => total + char.charCodeAt(0), 0);
+  const avatarIndex = (hash % 20) + 1;
+  return `https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-${avatarIndex}.png?width=40&height=40&format=auto`;
 };
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
-  return (
+  const avatarSrc = testimonial.avatar || getFallbackAvatar(testimonial.name);
+
+  const card = (
     <Card className="max-w-sm border-none bg-muted shadow-none">
       <CardContent className="space-y-0">
         <div>
@@ -21,7 +30,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
         </div>
         <div className="flex items-center gap-2 ">
           <Avatar className="size-10">
-            <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
+            <AvatarImage src={avatarSrc} alt={testimonial.name} />
             <AvatarFallback>
               {testimonial.name
                 .split(" ", 2)
@@ -36,6 +45,20 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
         </div>
       </CardContent>
     </Card>
+  );
+
+  if (!testimonial.link) return card;
+
+  return (
+    <a
+      href={testimonial.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Open source for testimonial from ${testimonial.name}`}
+      className="block transition-opacity hover:opacity-90"
+    >
+      {card}
+    </a>
   );
 };
 

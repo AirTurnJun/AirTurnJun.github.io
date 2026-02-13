@@ -12,7 +12,7 @@ const Index = () => {
       <HeroSection />
       <FeaturesSection />
       <AppIntegrationSection />
-      {/* <TestimonialsSection /> */}
+      <TestimonialsSection />
       <div className="w-full pb-20 flex justify-center">
         <iframe width="1242" height="699" src="https://www.youtube.com/embed/8kqmQIk-x6A" title="A New Way to Control your Music while Skiing | 2026 Airturn Mav" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  ></iframe>
       </div>
