@@ -285,7 +285,7 @@ const ProductDetail = () => {
               />
             </div>
 
-            <div className="text-3xl font-bold text-primary">$99.00</div>
+            <div className="text-3xl font-bold text-primary">$69.00</div>
 
             <div className="space-y-4">
               <div className="flex items-center gap-4">
@@ -309,7 +309,7 @@ const ProductDetail = () => {
                   onClick={handleAddToCart}
                 >
                   <div className="text-center">
-                    <span className="w-full md:w-auto">Add to Cart - ${(99.00 * quantity).toFixed(2)}</span>
+                    <span className="w-full md:w-auto">Add to Cart - ${(69.00 * quantity).toFixed(2)}</span>
                     <span className="w-full md:w-auto md:ml-1 inline-flex items-center justify-center">
                       (Free 2-day shipping)
                     </span>
@@ -369,7 +369,7 @@ const ProductDetail = () => {
           data-yotpo-name="AirTurn MAV"
           data-yotpo-url="https://www.airturn.com/products/airturn-mav"
           data-yotpo-image-url="https://www.airturn.com/cdn/shop/files/Perspective_Square_large.jpg?v=1750191761"
-          data-yotpo-price="99.00"
+          data-yotpo-price="69.00"
           data-yotpo-currency="USD"
           data-yotpo-description={`<p>Wearable, waterproof, and ultra-durable Bluetooth media controller.<br></p><ul><li>Control music, media, camera, and apps—without reaching for your phone</li><li>Navigate playlists, skip tracks, start/stop recording</li><li>Take photos or video remotely</li></ul><h4>Wearable Bluetooth Control for Active Lifestyles</h4><p>The AirTurn MAV is a rugged, Bluetooth-enabled media controller designed for movement. With four tactile buttons and a compact, strap-on design, it offers direct control over your apps—whether you’re hiking, biking, paddling, or snowboarding. No need to dig out your phone; just press a button to stay in control.</p><h4>Built to Withstand the Elements</h4><p>Waterproof, dustproof, and impact-resistant, the MAV is built to handle outdoor conditions in any weather.</p><h4>Direct Button Control in Motion</h4><p>The MAV gives you physical control you can count on. Whether you’re wearing gloves or in motion, the soft-touch buttons deliver clear tactile feedback for confident presses.</p><h4>Lightweight and Low-Profile</h4><p>Weighing just a few ounces, the MAV stays out of the way while staying ready for action. Mount it to your wrist, bike, pack, or gear with the included strap for comfortable access without adding bulk.</p><p>Featuring a compact, low-profile design, the AirTurn MAV delivers direct tactile control in a wearable, waterproof housing.</p><ul><li><strong>Wearable Design:</strong> Straps securely to your arm, wrist, gear, or handlebars.</li><li><strong>Rugged Yet Lightweight:</strong> Tough polymer casing keeps weight to a minimum.</li><li><strong>Weatherproof Build:</strong> Water, dust, and shock resistant.</li><li><strong>Extended Battery Life:</strong> Enjoy up to 200+ hours on a single charge.</li><li><strong>Tactile Buttons:</strong> Five soft, pressable buttons with LED backlighting.</li><li><strong>Bluetooth 5 Wireless:</strong> Strong, low-latency connection.</li></ul><p>Product weight: oz (kg)</p><p>Product Dimensions: in (mm)</p>`}
           style={{
