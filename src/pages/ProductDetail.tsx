@@ -286,12 +286,12 @@ const ProductDetail = () => {
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
-              <div className="text-3xl font-bold text-primary">$99.00</div>
+              <div className="text-3xl font-bold text-primary">$69.00</div>
               <Badge
                 variant="outline"
                 className="border-primary/60 bg-primary/10 px-3 py-1 text-sm text-primary font-light"
               >
-                Use code <span className="mx-1 font-bold tracking-wide">MAV20</span> for $20 off
+                <span className="mx-1 font-bold tracking-wide">$49</span> with code <span className="mx-1 font-bold tracking-wide">MAV20</span>
               </Badge>
             </div>
 
